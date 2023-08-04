@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/Screens/Home/Homepage.dart';
+import '/Screens/Home/homepage.dart';
 import '/Screens/Login/login_page.dart';
 
 class Regstrpage extends StatefulWidget {
