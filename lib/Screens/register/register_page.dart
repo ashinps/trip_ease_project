@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '/Screens/Home/homepage.dart';
-import '/Screens/Login/login_page.dart';
+import 'package:trip_ease_project/Screens/Home/homepage.dart';
+import 'package:trip_ease_project/Screens/Login/login_page.dart';
 
-class Regstrpage extends StatefulWidget {
-  const Regstrpage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<Regstrpage> createState() => _RegstrpageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegstrpageState extends State<Regstrpage> {
+class _RegisterPageState extends State<RegisterPage> {
 
   //variables
   var usernameController = TextEditingController();
@@ -52,7 +52,7 @@ class _RegstrpageState extends State<Regstrpage> {
                         border: OutlineInputBorder(),
                       ),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.isEmpty|| !RegExp(r'^[a-zA-Z0-9_-]{3,20}$').hasMatch(value) ) {
                             return 'Please enter your name';
                           }
                           return null;
@@ -67,11 +67,12 @@ class _RegstrpageState extends State<Regstrpage> {
                     TextFormField(
                       controller: emailController,
                       decoration: const InputDecoration(
+                        hintText: 'example@gmail.com',
                         labelText: "Email",
                         border: OutlineInputBorder(),
                       ),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.isEmpty||  !RegExp(r'^[\w-]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
                             return 'Please enter your email';
                           }
                           return null;
@@ -87,6 +88,7 @@ class _RegstrpageState extends State<Regstrpage> {
                       obscureText: !passEnable,
                       controller: passController,
                       decoration: InputDecoration(
+                        hintText: '(8+chars,1lowercase,1uppercase,1digit,1symbol)',
                         labelText: "Password",
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
@@ -97,7 +99,7 @@ class _RegstrpageState extends State<Regstrpage> {
                           },
                           icon: Icon(passEnable ? Icons.visibility:Icons.visibility_off))),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.isEmpty|| !RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$').hasMatch(value)) {
                             return 'Please enter your password';
                           }
                           return null;
@@ -124,7 +126,7 @@ class _RegstrpageState extends State<Regstrpage> {
                           icon: Icon(confirmPassEnable ? Icons.visibility:Icons.visibility_off))
                       ),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.isEmpty|| value != passController.text) {
                             return 'Please confirm your password';
                           }
                           return null;
