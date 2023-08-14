@@ -1,7 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/Screens/forgot_password/forgot_password.dart';
+import 'package:trip_ease_project/Screens/forgot_password/forgot-password.dart';
 import 'package:trip_ease_project/Screens/register/register_page.dart';
+
+import 'sign_in.dart';
+
+class Welcomepage extends StatelessWidget {
+  const Welcomepage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Text("Welcome",style: TextStyle(fontSize: 40),),
+          ),
+
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginpage(),));
+            }, child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:70,vertical: 12.0),
+              child: const Text('Log in'),
+            )),
+          SizedBox(height: 12,),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => const RegisterPage(),));
+          }, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 67,vertical: 12),
+            child: const Text('Sign up'),
+          )),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 65,vertical: 22),
+            child: OutlinedButton(
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.black)
+                ),
+                onPressed: (){
+                    signInWithGoogle().then((result){
+                      if(result != null){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Homepage()));
+                      }
+                    });
+                },
+
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Image(height:32 ,width: 32,
+                        image: AssetImage("assets/images/google-logo.png")),
+                    SizedBox(width: 10,),
+                    Text("Login with Google")]),
+                )),
+          )
+        ],
+      ),
+    );
+  }
+}
 
 
 class Loginpage extends StatefulWidget {
@@ -123,11 +184,11 @@ class _LoginpageState extends State<Loginpage> {
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
-                     Text("Don't have an account? Create one"),
+                     Text("Don't have an account?"),
                      TextButton(onPressed: () {
                        Navigator.pushReplacement(context, MaterialPageRoute(
                          builder: (context) => const RegisterPage(),));
-                         },child: const Text("Register"),),
+                         },child: const Text("Sign Up"),),
                    ],
                  )
                 ]

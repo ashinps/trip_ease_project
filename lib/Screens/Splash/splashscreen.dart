@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import '/Screens/Login/login_page.dart';
+import 'package:trip_ease_project/Screens/Login/login_page.dart';
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -14,10 +14,10 @@ class _SplashState extends State<Splash> {
   void initState(){
     super.initState();
     Timer(
-      const Duration(seconds: 5),(){
+      const Duration(seconds: 7),(){
       Navigator.pushReplacement(context,
       MaterialPageRoute(
-      builder: (context) => const Loginpage(),
+      builder: (context) => const Welcomepage(),
       ));
     });
   }

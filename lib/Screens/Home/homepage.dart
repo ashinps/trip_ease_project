@@ -23,6 +23,8 @@ class _HomepageState extends State<Homepage> {
       drawer: Drawer(
         child: Column(
           children: <Widget>[
+
+            //settings
             ListTile(
               leading: Icon(Icons.settings),
               title: Text("Settings"),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/Screens/profile/profie.dart';
+import 'package:trip_ease_project/Screens/Login/login_page.dart';
+import 'package:trip_ease_project/screens/profile/profile.dart';
+import 'package:trip_ease_project/screens/login/sign_in.dart';
 class Settings extends StatefulWidget {
   const Settings({super.key});
 
@@ -21,17 +23,18 @@ class _SettingsState extends State<Settings> {
         children:  [
 
 
+          //Account Tile
            ListTile(
-            title: Text('Account'),leading: Icon(Icons.account_circle_sharp) ,
-            onTap: () {Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => ProfileSettings()),);
+            title: const Text('Account'),leading: const Icon(Icons.account_circle_sharp) ,
+            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const ProfileSettings()),);
           }),
 
-
+          //Privacy Policy Tile
           const ListTile(
             title: Text('Privacy Policy'),leading: Icon(Icons.privacy_tip) ,
           ),
 
-
+          //Notifications Tile
           ListTile(
             title: const Text('Notifications'),leading: const Icon(Icons.notifications) ,trailing: Switch(value: notifications, onChanged: (bool value){
               setState(() {
@@ -40,7 +43,7 @@ class _SettingsState extends State<Settings> {
           }),
           ),
 
-
+          //Dark/Light Tile
           ListTile(
             title: const Text('Dark/Light'),leading: const Icon(Icons.light_mode_outlined) ,trailing: Switch(value: darkLight,onChanged: (bool value){
               setState(() {
@@ -49,16 +52,18 @@ class _SettingsState extends State<Settings> {
           },),
           ),
 
-
+           //Languages Tile
            ListTile(
-            title: Text('Language'),leading: Icon(Icons.language) ,
+            title: const Text('Language'),leading: const Icon(Icons.language) ,
             trailing: DropdownButton(
               value: language,
-              items:  [
+              items:  const [
                 DropdownMenuItem<String>(
-                child: Text('English'), value: 'english',),
+                value: 'english',
+                child: Text('English'),),
                 DropdownMenuItem<String>(
-                  child: Text('Malayalam'), value: 'malayalam',)],
+                  value: 'malayalam',
+                  child: Text('Malayalam'),)],
               onChanged: (String? value) {
                 setState(() {
                   language= value;
@@ -66,20 +71,24 @@ class _SettingsState extends State<Settings> {
             },),
           ),
 
-
+          //Change Password Tile
           const ListTile(
             title: Text('Change Password'),leading: Icon(Icons.password) ,
           ),
 
-
-          const ListTile(
-            title: Text('Delete Account'),leading: Icon(Icons.delete) ,
+          //Delete Account Tile
+           const ListTile(
+            title: Text('Delete Account'), leading: Icon(Icons.delete) ,
           ),
 
-
-          const ListTile(
-            title: Text('Log Out'),leading: Icon(Icons.logout) ,
-          ),
+          //Log Out Tile
+          ListTile(
+            title: const Text('Log Out'),leading: const Icon(Icons.logout),
+            onTap:() {
+              signOutGoogle();
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {
+                return const Welcomepage();}), ModalRoute.withName('/'));
+            }),
         ],
       ),
     );
