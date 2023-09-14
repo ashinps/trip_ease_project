@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/Screens/Login/login_page.dart';
+import 'package:trip_ease_project/main.dart';
+import 'package:trip_ease_project/Screens/delete_account/delete account.dart';
+import 'package:trip_ease_project/screens/change_password/changepassword.dart';
+import 'package:trip_ease_project/screens/privacy%20policy/privacypolicy.dart';
 import 'package:trip_ease_project/screens/profile/profile.dart';
 import 'package:trip_ease_project/screens/login/sign_in.dart';
+import 'package:trip_ease_project/Screens/welcome_page/welcome_page.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../utils/theme_provider.dart';
+
+
+
+
 class Settings extends StatefulWidget {
   const Settings({super.key});
 
@@ -9,9 +21,10 @@ class Settings extends StatefulWidget {
   State<Settings> createState() => _SettingsState();
 }
 
+
+
 class _SettingsState extends State<Settings> {
   bool notifications = true;
-  bool darkLight = true;
   String? language='english';
   @override
   Widget build(BuildContext context) {
@@ -20,77 +33,112 @@ class _SettingsState extends State<Settings> {
         title: const Text('Settings'),
       ),
       body: ListView(
-        children:  [
+        children: [
 
 
           //Account Tile
-           ListTile(
-            title: const Text('Account'),leading: const Icon(Icons.account_circle_sharp) ,
-            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const ProfileSettings()),);
-          }),
+          ListTile(
+              title: const Text('Account'),
+              leading: const Icon(Icons.account_circle_sharp),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const ProfileSettings()),);
+              }),
 
           //Privacy Policy Tile
-          const ListTile(
-            title: Text('Privacy Policy'),leading: Icon(Icons.privacy_tip) ,
-          ),
+          ListTile(
+              title: const Text('Privacy Policy'),
+              leading: const Icon(Icons.privacy_tip),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const PrivacyPolicy()),);
+              }),
 
           //Notifications Tile
           ListTile(
-            title: const Text('Notifications'),leading: const Icon(Icons.notifications) ,trailing: Switch(value: notifications, onChanged: (bool value){
+            title: const Text('Notifications'),
+            leading: const Icon(Icons.notifications),
+            trailing: Switch(value: notifications, onChanged: (bool value) {
               setState(() {
                 notifications = !notifications;
               });
-          }),
+            }),
           ),
 
           //Dark/Light Tile
           ListTile(
-            title: const Text('Dark/Light'),leading: const Icon(Icons.light_mode_outlined) ,trailing: Switch(value: darkLight,onChanged: (bool value){
-              setState(() {
-                darkLight = !darkLight;
-              });
-          },),
+            title: const Text('Dark/Light'),
+            leading: const Icon(Icons.light_mode_outlined),
+            trailing: Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                return Switch(
+                  value: themeProvider.isDark,
+                  onChanged: (value) {
+                    themeProvider.toggleTheme();
+                  },
+                );
+              },
+            ),
           ),
 
-           //Languages Tile
-           ListTile(
-            title: const Text('Language'),leading: const Icon(Icons.language) ,
+          //Languages Tile
+          ListTile(
+            title: const Text('Language'),
+            leading: const Icon(Icons.language),
             trailing: DropdownButton(
               value: language,
-              items:  const [
+              items: const [
                 DropdownMenuItem<String>(
-                value: 'english',
-                child: Text('English'),),
+                  value: 'english',
+                  child: Text('English'),),
                 DropdownMenuItem<String>(
                   value: 'malayalam',
-                  child: Text('Malayalam'),)],
+                  child: Text('Malayalam'),)
+              ],
               onChanged: (String? value) {
                 setState(() {
-                  language= value;
+                  language = value;
                 });
-            },),
+              },),
           ),
 
           //Change Password Tile
-          const ListTile(
-            title: Text('Change Password'),leading: Icon(Icons.password) ,
+          ListTile(
+              title: const Text('Change Password'),
+              leading: const Icon(Icons.password),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const ChangePassword()),);
+              }
           ),
 
           //Delete Account Tile
-           const ListTile(
-            title: Text('Delete Account'), leading: Icon(Icons.delete) ,
+          ListTile(
+              title: const Text('Delete Account'),
+              leading: const Icon(Icons.delete),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const DeleteAccount()),);
+              }
           ),
 
           //Log Out Tile
           ListTile(
-            title: const Text('Log Out'),leading: const Icon(Icons.logout),
-            onTap:() {
-              signOutGoogle();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {
-                return const Welcomepage();}), ModalRoute.withName('/'));
-            }),
+              title: const Text('Log Out'), leading: const Icon(Icons.logout),
+              onTap: () async {
+                await signOutGoogle();
+                SharedPreferences.getInstance().then((pref) {
+                  pref.setBool('LoggedIn', false);
+                });
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) {
+                      return const WelcomePage();
+                    }), ModalRoute.withName('/'));
+              }),
         ],
       ),
     );
   }
-}
+
+  }
+

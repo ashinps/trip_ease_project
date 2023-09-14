@@ -36,9 +36,9 @@ Future<String?> signInWithGoogle() async {
     imageUrl = user.photoURL;
 
     // Only taking the first part of the name, i.e., First Name
-    if (name!.contains(" ")) {
-      name = name!.substring(0, name!.indexOf(" "));
-    }
+    // if (name!.contains(" ")) {
+    //   name = name!.substring(0, name!.indexOf(" "));
+    // }
 
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
@@ -59,3 +59,4 @@ Future<void> signOutGoogle() async {
 
   print("User Signed Out");
 }
+

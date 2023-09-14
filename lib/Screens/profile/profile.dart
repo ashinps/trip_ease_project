@@ -1,6 +1,7 @@
+
+import 'package:trip_ease_project/Screens/login/sign_in.dart';
 import 'package:flutter/material.dart';
 
-import '../Login/sign_in.dart';
 class ProfileSettings extends StatefulWidget {
   const ProfileSettings({super.key});
 
@@ -17,40 +18,46 @@ class _ProfileSettingsState extends State<ProfileSettings> {
       ),
       body: Center(
         child: Container(
-          height: 570,width: 450,
+          height: 550,width: 300,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
               )],
-            color:Colors.white,
+              color:Colors.white,
 
           ),
           child:  Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
 
-              SizedBox(height: 20,),
-
+              const SizedBox(height: 20,),
               CircleAvatar(
-                backgroundColor: Colors.transparent,
-                backgroundImage: NetworkImage(imageUrl!),
-                radius: 60,
-              ),
+                 backgroundImage: NetworkImage(imageUrl!), radius: 60,
+                 backgroundColor: Colors.transparent,
+             ),
               SizedBox(height:40 ,),
 
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(20.0),
-                child: Row(children: [Text('Name:',style: TextStyle(fontSize: 20),),],),
+                child: Row(
+                  children:[
+                  const Text('Name:',),
+                 const SizedBox(width: 20,),
+                 Text(name!)
+                  ],),
               ),
 
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(20.0),
-                child: Row(children: [Text('Email:',style: TextStyle(fontSize: 20),),],),
+                child: Row(children:
+                [const Text('Email:',),
+                 const SizedBox(width: 20,),
+                 Text(email!)],),
               ),
 
 
