@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/screens/delete_account/delete account.dart';
-import 'package:trip_ease_project/screens/change_password/changepassword.dart';
+import 'package:trip_ease_project/screens/delete_account/delete_account.dart';
+import 'package:trip_ease_project/screens/change_password/change_password.dart';
 import 'package:trip_ease_project/screens/privacy_policy/privacy_policy.dart';
 import 'package:trip_ease_project/screens/profile/profile.dart';
 import 'package:trip_ease_project/screens/login/sign_in.dart';
