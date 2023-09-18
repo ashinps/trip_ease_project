@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:trip_ease_project/Screens/settings/setting.dart';
-import 'package:trip_ease_project/Screens/home/grid.dart';
+import 'package:trip_ease_project/screens/home/grid.dart';
+import 'package:trip_ease_project/screens/home/maps.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,33 +19,55 @@ class _HomepageState extends State<Homepage> {
     Maps(),
   ];
 
+  String selectedItem = 'Settings';
+
+  _dropDownItem(String value){
+    setState(() {
+      selectedItem = value;
+      switch(selectedItem){
+        case 'Settings':
+      Navigator.push(context,
+        MaterialPageRoute(builder: (context) => Settings()),);
+      break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Trip Ease'),),
-      drawer: Drawer(
-        child: Scaffold(
-          appBar: AppBar(
+        title: const Text('Trip Ease'),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+              onSelected: _dropDownItem,
+              itemBuilder:(BuildContext context){
+            return <PopupMenuEntry<String>>[
+              const PopupMenuItem(value:'Settings',child: Text('Settings')),
+            ];
+          } )
+        ],),
 
-          ),
-          body:Column(
-              children:
-          <Widget>[
-            //settings
-            ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-                onTap:  () async {
-                  Navigator.pop;
-                  await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings()),);
-
-                }
-            ),
-          ]) ,
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: Scaffold(
+      //     body:Column(
+      //         children:
+      //     <Widget>[
+      //       //settings
+      //       ListTile(
+      //           leading: Icon(Icons.settings),
+      //           title: Text("Settings"),
+      //           onTap:  () async {
+      //             Navigator.pop(context);
+      //             await Navigator.push(context,
+      //             MaterialPageRoute(builder: (context) => Settings()),);
+      //
+      //
+      //           }
+      //       ),
+      //     ]) ,
+      //   ),
+      // ),
 
       body: tabs[_currentIndex],
 
@@ -51,10 +75,8 @@ class _HomepageState extends State<Homepage> {
       bottomNavigationBar:BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        fixedColor: Colors.white,
-        backgroundColor: Colors.red,
         selectedIconTheme: const IconThemeData(size: 30,),
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -88,16 +110,7 @@ class Home extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(17),
-                      boxShadow: [BoxShadow(
-                        color: Colors.black.withOpacity(.09),
-                        spreadRadius: 5,
-                        blurRadius: 5,
-                        offset: Offset(0,3),
-                      )]),
-                  child: TextField(
+                    child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(17)
@@ -125,13 +138,3 @@ class Home extends StatelessWidget {
   }
 }
 
-class Maps extends StatelessWidget {
-  const Maps ({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Text('Maps is here')),
-    );
-  }
-}

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/Screens/welcome_page/welcome_page.dart';
+import 'package:trip_ease_project/screens/welcome_page/welcome_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
@@ -41,17 +41,26 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-                child: CircleAvatar(
-                  radius: 150.0,
-                  backgroundColor: Colors.transparent,
-                  backgroundImage: AssetImage('assets/images/logo.jpg'),
+                child: Stack(
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        radius: 150.0,
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: AssetImage('assets/images/logo.jpg'),
+
+                      ),
+                    ),
+                    Center(
+                      child: SizedBox(
+                        height: 300,width: 300,
+                        child: CircularProgressIndicator(
+                          strokeWidth:3,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),),
-           Padding(
-             padding: EdgeInsets.all(60.0),
-             child: CircularProgressIndicator(
-               strokeWidth:3,
-             ),
-           ),
           ],
         ),
       ),
