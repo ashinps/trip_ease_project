@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     title: 'Trip Ease',
     debugShowCheckedModeBanner: false,
     theme: Provider.of<ThemeProvider>(context).themeData,
-    home: Maps()
+    home: Splash()
     );
     }
 }
