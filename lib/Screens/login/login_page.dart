@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/Screens/forgot_password/forgot-password.dart';
+import 'package:trip_ease_project/Screens/forgot_password/forgot_password.dart';
 import 'package:trip_ease_project/Screens/register/register_page.dart';
 import 'package:trip_ease_project/Screens/profile/profile.dart';
 import 'sign_in.dart';
