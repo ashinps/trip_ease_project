@@ -13,29 +13,29 @@ class Grid extends StatefulWidget {
 class _GridState extends State<Grid> {
   @override
   void initState(){
+    super.initState();
     display();
 }
 
-List<String>Images=[];
+List<String>images=[];
 
 
 bool isLoading= true;
 
 Future<void>display()async{
-  var url = "https://flutterproject1-76fff-default-rtdb.firebaseio.com/"+"Destinations.json";
+  var url = "https://trip-ease-c708e-default-rtdb.firebaseio.com/Destinations.json";
   try{
     final response=await http.get(Uri.parse(url));
     final data=json.decode(response.body) as Map<String, dynamic>;
 
-    if(data == null){return;}
     data.forEach((key, value) {
-      Images.add(value['image']);
+      images.add(value['image']);
     });
     setState(() {
       isLoading = false;
     });
 
-  }catch(e){print('$e');};
+  }catch(e){return;}
 }
   @override
   Widget build(BuildContext context) {
@@ -43,10 +43,10 @@ Future<void>display()async{
       body: Center(
         child: isLoading?const CircularProgressIndicator():Center(
           child: GridView.builder(
-    itemCount: Images.length,
+    itemCount: images.length,
     itemBuilder: (context,index){
-        return GridTile(child:Image(image: NetworkImage(Images[index]),));
-    }, gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,childAspectRatio:  1.5)
+        return GridTile(child:Image(image: NetworkImage(images[index]),));
+    }, gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,childAspectRatio:  1.5)
           ),
         ),
       ),

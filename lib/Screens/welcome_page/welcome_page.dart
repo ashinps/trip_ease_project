@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/Screens/Home/homepage.dart';
+import 'package:trip_ease_project/screens/Home/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../login/sign_in.dart';
 import '../Login/login_page.dart';
@@ -8,10 +8,10 @@ import '../register/register_page.dart';
 
 class WelcomePage extends StatelessWidget {
   Future<bool> isLoggedIn()async {
-  final prefs = await SharedPreferences.getInstance();
-  return prefs.getBool('LoggedIn')?? false;
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('LoggedIn')?? false;
   }
-    const WelcomePage({super.key});
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +53,9 @@ class WelcomePage extends StatelessWidget {
 
             ElevatedButton.icon(
               style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                ),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
               onPressed: ()async {
                 bool loggedIn = await isLoggedIn();
                 if (loggedIn) {

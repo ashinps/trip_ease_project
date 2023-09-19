@@ -1,78 +1,42 @@
 {
   "project_info": {
-    "project_number": "1065615134149",
-    "project_id": "flutterproject1-76fff",
-    "storage_bucket": "flutterproject1-76fff.appspot.com"
+    "project_number": "335001052576",
+    "firebase_url": "https://trip-ease-c708e-default-rtdb.firebaseio.com",
+    "project_id": "trip-ease-c708e",
+    "storage_bucket": "trip-ease-c708e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1065615134149:android:4630d30b538f6f89edcfac",
-        "android_client_info": {
-          "package_name": "com.ashinps.flutter_project1"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1065615134149-eo7jpb0me83cd7mkqekpfbqil27vl8j0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.ashinps.flutter_project1",
-            "certificate_hash": "a621350483be66132b393b7b62a2221af7d6ec66"
-          }
-        },
-        {
-          "client_id": "1065615134149-e3nts7mqfv4vleloicb8050cbv0gnb05.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCVX6_N7dVcw_P8t88COWqqWo8zvTPW4eA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1065615134149-e3nts7mqfv4vleloicb8050cbv0gnb05.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1065615134149:android:f4cce48b1ef46f1aedcfac",
+        "mobilesdk_app_id": "1:335001052576:android:8141303683b4b4d3a370c5",
         "android_client_info": {
           "package_name": "com.ashinps.trip_ease_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1065615134149-1s2e6psuud1sg43bc8k1mkqscaormsiu.apps.googleusercontent.com",
+          "client_id": "335001052576-309hqc8kd26sj0h4enmnuj585905rrkg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.ashinps.trip_ease_project",
-            "certificate_hash": "a621350483be66132b393b7b62a2221af7d6ec66"
+            "certificate_hash": "a05f194cc3e012ab29dfd4f91569a9b9a74cbf25"
           }
         },
         {
-          "client_id": "1065615134149-e3nts7mqfv4vleloicb8050cbv0gnb05.apps.googleusercontent.com",
+          "client_id": "335001052576-cb5o3c0v5kuak0s500j7mfui7r0g97fh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVX6_N7dVcw_P8t88COWqqWo8zvTPW4eA"
+          "current_key": "AIzaSyCikup9k_VEMrJjfg1jvBDlWGB2Zb-aBC4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1065615134149-e3nts7mqfv4vleloicb8050cbv0gnb05.apps.googleusercontent.com",
+              "client_id": "335001052576-cb5o3c0v5kuak0s500j7mfui7r0g97fh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
