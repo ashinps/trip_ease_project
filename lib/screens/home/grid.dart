@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 
@@ -45,7 +46,7 @@ Future<void>display()async{
           child: GridView.builder(
     itemCount: images.length,
     itemBuilder: (context,index){
-        return GridTile(child:Image(image: NetworkImage(images[index]),));
+        return GridTile(child:Image(image: CachedNetworkImageProvider(images[index]),));
     }, gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,childAspectRatio:  1.5)
           ),
         ),

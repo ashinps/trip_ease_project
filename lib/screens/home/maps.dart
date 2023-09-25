@@ -25,10 +25,10 @@ class _MapsState extends State<Maps> {
     setState(() {
       _marker = {};
       _marker.add(Marker(
-        onTap: _bottomSheet,
         markerId: MarkerId(position.toString()),
         position: position,
         draggable: true,
+        onTap: _bottomSheet(),
         infoWindow: const InfoWindow(
           title:'Marker',
           snippet: 'Marker',
@@ -41,14 +41,17 @@ class _MapsState extends State<Maps> {
     showModalBottomSheet(
         elevation: 25,
         context: context,
-        builder:(_)=> Container(height: 200,
+        builder:(_)=> SizedBox(height: 200,
             child: ListTile(
-              leading: Icon(Icons.add),
-              title: Text('Add location'),
-              onTap: (){},
+              leading: const Icon(Icons.add),
+              title: const Text('Add location'),
+              onTap: (){_addLocation();},
             ),));
   }
-  
+
+  _addLocation(){
+    const SizedBox(height: 200,child: Text("hello"),);
+  }
 
   @override
   Widget build(BuildContext context) {

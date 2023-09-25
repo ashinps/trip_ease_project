@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "335001052576-5l9lud42aao5p2tv86q1nu7b0cecvbl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ashinps.trip_ease_project",
+            "certificate_hash": "16b20ede2195d394251ba78119f72195ae901e8c"
+          }
+        },
+        {
           "client_id": "335001052576-cb5o3c0v5kuak0s500j7mfui7r0g97fh.apps.googleusercontent.com",
           "client_type": 3
         }

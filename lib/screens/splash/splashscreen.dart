@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/screens/welcome_page/welcome_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:trip_ease_project/screens/home/homepage.dart';
+import 'package:trip_ease_project/screens/welcome_page/welcome_page.dart';
+
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -27,7 +29,7 @@ class _SplashState extends State<Splash> {
       const Duration(seconds: 5),(){
       Navigator.pushReplacement(context,
       MaterialPageRoute(
-      builder: (context) => LoggedIn? Homepage() : WelcomePage(),
+      builder: (context) => LoggedIn? const Homepage() : const WelcomePage(),
       ));
     });
   }

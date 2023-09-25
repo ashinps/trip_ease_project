@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/Screens/forgot_password/forgot_password.dart';
 import 'package:trip_ease_project/Screens/register/register_page.dart';
-import 'package:trip_ease_project/Screens/profile/profile.dart';
-import 'sign_in.dart';
+import 'package:trip_ease_project/screens/forgot_password/forgot_password.dart';
 
 
 
 
-class Loginpage extends StatefulWidget {
-  const Loginpage({super.key});
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<Loginpage> createState() => _LoginpageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 
-class _LoginpageState extends State<Loginpage> {
+class _LoginPageState extends State<LoginPage> {
 
   //variables
   var emailController=TextEditingController();
@@ -81,7 +80,7 @@ class _LoginpageState extends State<Loginpage> {
                                    controller: passController,
                                    decoration: InputDecoration(
                                        hintText: '(8+chars,1lowercase,1uppercase,1digit,1symbol)',
-                                       hintStyle: TextStyle(fontSize: 14),
+                                       hintStyle: const TextStyle(fontSize: 14),
                                        border: const OutlineInputBorder(),
                                        labelText: "Password",
                                        suffixIcon: IconButton(
@@ -103,7 +102,7 @@ class _LoginpageState extends State<Loginpage> {
                          mainAxisAlignment: MainAxisAlignment.end,
                          children:[
                          TextButton(onPressed: (){
-                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Forgotpw(),));
+                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ForgotPassword(),));
                          },child: const Text("Forgot password?")),
                          ],)
 
@@ -127,7 +126,7 @@ class _LoginpageState extends State<Loginpage> {
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
-                     Text("Don't have an account?"),
+                     const Text("Don't have an account?"),
                      TextButton(onPressed: () {
                        Navigator.pushReplacement(context, MaterialPageRoute(
                          builder: (context) => const RegisterPage(),));

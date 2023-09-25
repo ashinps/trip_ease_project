@@ -59,4 +59,3 @@ Future<void> signOutGoogle() async {
 
   print("User Signed Out");
 }
-

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-class Forgotpw extends StatefulWidget {
-  const Forgotpw({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
   @override
-  State<Forgotpw> createState() => _ForgotpwState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _ForgotpwState extends State<Forgotpw> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

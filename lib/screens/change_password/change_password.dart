@@ -6,8 +6,8 @@ class ChangePassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Change Password'),),
-      body: Text('Change your password here'),
+      appBar: AppBar(title: const Text('Change Password'),),
+      body: const Text('Change your password here'),
     );
   }
 }

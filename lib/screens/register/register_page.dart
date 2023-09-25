@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trip_ease_project/Screens/Home/homepage.dart';
-import 'package:trip_ease_project/Screens/Login/login_page.dart';
+import 'package:trip_ease_project/screens/home/homepage.dart';
+import 'package:trip_ease_project/screens/login/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -92,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             hintText: '(8+chars,1lowercase,1uppercase,1digit,1symbol)',
                             labelText: "Password",
-                            hintStyle: TextStyle(fontSize: 14),
+                            hintStyle: const TextStyle(fontSize: 14),
                             border: const OutlineInputBorder(),
                             suffixIcon: IconButton(
                               onPressed: () {
@@ -161,7 +161,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children:[const Text('Already have an account?'),
                             TextButton(onPressed: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Loginpage(),));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
                             }, child: (const Text('Login',style: TextStyle(fontSize: 15),)))])),
                       ],
                     ),

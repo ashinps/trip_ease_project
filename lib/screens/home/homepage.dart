@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:trip_ease_project/Screens/settings/setting.dart';
+import 'package:trip_ease_project/screens/settings/setting.dart';
 import 'package:trip_ease_project/screens/home/grid.dart';
 import 'package:trip_ease_project/screens/home/maps.dart';
 
@@ -15,8 +15,8 @@ class _HomepageState extends State<Homepage> {
   int _currentIndex = 0;
 
   final tabs = [
-    Home(),
-    Maps(),
+    const Home(),
+    const Maps(),
   ];
 
   String selectedItem = 'Settings';
@@ -27,7 +27,7 @@ class _HomepageState extends State<Homepage> {
       switch(selectedItem){
         case 'Settings':
       Navigator.push(context,
-        MaterialPageRoute(builder: (context) => Settings()),);
+        MaterialPageRoute(builder: (context) => const Settings()),);
       break;
       }
     });
@@ -109,25 +109,23 @@ class Home extends StatelessWidget {
               //SearchBar
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Container(
-                    child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(17)
-                        ),
-                        suffixIcon: Icon(Icons.search),
-                        hintText: 'Search Destination',
-
+                child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(17)
                     ),
-                  ),
+                    suffixIcon: const Icon(Icons.search),
+                    hintText: 'Search Destination',
+
                 ),
+                  ),
               ),
 
-              Padding(padding: EdgeInsets.all(0.0),
+              Padding(padding: const EdgeInsets.all(0.0),
                 child:Container(
-                  child: Grid(),
                   height: 440,
                   color: Colors.black,
+                  child: const Grid(),
                 ),)
 
 
